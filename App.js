@@ -1,7 +1,8 @@
 import {View} from 'react-native';
+import {AussieProvider} from './store/aussie_context';
 
 function App() {
-  return <View></View>;
+  return <AussieProvider></AussieProvider>;
 }
 
 export default App;
