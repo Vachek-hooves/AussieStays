@@ -15,8 +15,17 @@ function App() {
     <AussieProvider>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{headerShown: false, animation: 'flip'}}>
-          <Stack.Screen name="WelcomeScree" component={WelcomeScreen} />
+        // screenOptions={{headerShown: false, animation: 'flip'}}
+        >
+          <Stack.Screen
+            name="WelcomeScree"
+            component={WelcomeScreen}
+            options={{
+              animation: 'fade',
+              animationDuration: 500,
+              headerShown: false,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </AussieProvider>
