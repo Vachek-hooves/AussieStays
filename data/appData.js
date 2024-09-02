@@ -4,6 +4,7 @@ export const AussieData = [
     city: 'Brisbane',
     hotels: [
       {
+        isFavorite: false,
         name: 'Stamford Plaza',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/245488057.jpg?k=743cd901cd3c54b929283bbaa763c2afa94f7411d55083c0f4e624062766d7da&o=&hp=1',
@@ -21,6 +22,7 @@ export const AussieData = [
         price: {min: '172', max: '320'},
       },
       {
+        isFavorite: false,
         name: 'Hotel Grand Chancellor',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/557189318.jpg?k=d2e9ec31afd02943c9323374b1062d635d91e1259013f3cde4facd35e115b3f9&o=&hp=1',
@@ -40,6 +42,7 @@ export const AussieData = [
         price: {min: '146', max: '408'},
       },
       {
+        isFavorite: false,
         name: 'Treasury Brisbane',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/106468871.jpg?k=2345709321d1af1083802dc1227b32d4413d969d225cc1634d6dd56a57c1c69e&o=&hp=1',
@@ -65,6 +68,7 @@ export const AussieData = [
     city: 'Sydney',
     hotels: [
       {
+        isFavorite: false,
         name: 'Emirates One&Only Wolgan Valley',
         images: [
           'https://dynamic-media-cdn.tripadvisor.com/media/photo-s/01/b7/16/c9/wolgan-valley-resort.jpg?w=600&h=-1&s=1',
@@ -82,6 +86,7 @@ export const AussieData = [
         price: {min: '-33.25212', max: '150.1960'},
       },
       {
+        isFavorite: false,
         name: 'Skye Suites Sydney',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/162204307.jpg?k=7513997834fcd507371ca6ede6485f6108d5dc3285315b31c1ec1d8b2d82f58a&o=&hp=1',
@@ -98,6 +103,7 @@ export const AussieData = [
         price: {min: '222', max: '311'},
       },
       {
+        isFavorite: false,
         name: 'The Langham',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/113145057.jpg?k=326c3bb3fe4b5de44017b731daf1c6e29596214d2c4f503a0022c8094556ae49&o=&hp=1',
@@ -123,6 +129,7 @@ export const AussieData = [
     city: 'Gold Coast',
     hotels: [
       {
+        isFavorite: false,
         name: 'The Star Grand at The Star Gold Coast',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/152992164.jpg?k=cd7b2c5cc04563c4030c1bd9e10670b0088e0e70bce5b1123730f9ce5cdf1897&o=&hp=1',
@@ -142,6 +149,7 @@ export const AussieData = [
         price: {min: '185', max: '293'},
       },
       {
+        isFavorite: false,
         name: 'The Island Gold Coast',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/145053212.jpg?k=6512c6611824a56d14546ab841bae0bf74c5a7def2dc1ddc8b6083b1ac8079de&o=&hp=1',
@@ -161,6 +169,7 @@ export const AussieData = [
         price: {min: '135', max: '173'},
       },
       {
+        isFavorite: false,
         name: 'Vibe Hotel Gold Coast',
         images: [
           'https://cf.bstatic.com/xdata/images/hotel/max1024x768/398467163.jpg?k=6e6ba57b64695e14918ade79a03bc735033a1b21bdb527b1dbd52e9390d8b522&o=&hp=1',

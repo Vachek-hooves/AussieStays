@@ -1,10 +1,12 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import SafeLayout from '../components/Layout/SafeLayout';
+import CityGrid from '../components/Layout/HomeComponents/CityGrid';
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
+    <SafeLayout>
+      <CityGrid />
+    </SafeLayout>
   );
 };
 
