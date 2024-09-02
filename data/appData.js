@@ -3,7 +3,7 @@ export const AussieData = [
     id: 'br',
     city: 'Brisbane',
     hotels: [
-      {
+      {hotelId:'br1',
         isFavorite: false,
         name: 'Stamford Plaza',
         images: [
@@ -21,7 +21,7 @@ export const AussieData = [
         coordinates: {latitude: '-27.471410', longitude: '153.0308'},
         price: {min: '172', max: '320'},
       },
-      {
+      {hotelId:'br2',
         isFavorite: false,
         name: 'Hotel Grand Chancellor',
         images: [
@@ -41,7 +41,7 @@ export const AussieData = [
         },
         price: {min: '146', max: '408'},
       },
-      {
+      {hotelId:'br3',
         isFavorite: false,
         name: 'Treasury Brisbane',
         images: [
@@ -67,7 +67,7 @@ export const AussieData = [
     id: 'sy',
     city: 'Sydney',
     hotels: [
-      {
+      {hotelId:'sy1',
         isFavorite: false,
         name: 'Emirates One&Only Wolgan Valley',
         images: [
@@ -85,7 +85,7 @@ export const AussieData = [
         coordinates: {latitude: '175', longitude: '320'},
         price: {min: '-33.25212', max: '150.1960'},
       },
-      {
+      {hotelId:'sy2',
         isFavorite: false,
         name: 'Skye Suites Sydney',
         images: [
@@ -102,7 +102,7 @@ export const AussieData = [
         coordinates: {latitude: '-33.86766', longitude: '151.204471'},
         price: {min: '222', max: '311'},
       },
-      {
+      {hotelId:'sy3',
         isFavorite: false,
         name: 'The Langham',
         images: [
@@ -128,7 +128,7 @@ export const AussieData = [
     id: 'gc',
     city: 'Gold Coast',
     hotels: [
-      {
+      {hotelId:'gc1',
         isFavorite: false,
         name: 'The Star Grand at The Star Gold Coast',
         images: [
@@ -148,7 +148,7 @@ export const AussieData = [
         },
         price: {min: '185', max: '293'},
       },
-      {
+      {hotelId:'gc2',
         isFavorite: false,
         name: 'The Island Gold Coast',
         images: [
@@ -168,7 +168,7 @@ export const AussieData = [
         },
         price: {min: '135', max: '173'},
       },
-      {
+      {hotelId:'gc3',
         isFavorite: false,
         name: 'Vibe Hotel Gold Coast',
         images: [
