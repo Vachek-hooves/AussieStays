@@ -3,7 +3,8 @@ export const AussieData = [
     id: 'br',
     city: 'Brisbane',
     hotels: [
-      {hotelId:'br1',
+      {
+        hotelId: 'br1',
         isFavorite: false,
         name: 'Stamford Plaza',
         images: [
@@ -21,7 +22,8 @@ export const AussieData = [
         coordinates: {latitude: '-27.471410', longitude: '153.0308'},
         price: {min: '172', max: '320'},
       },
-      {hotelId:'br2',
+      {
+        hotelId: 'br2',
         isFavorite: false,
         name: 'Hotel Grand Chancellor',
         images: [
@@ -41,7 +43,8 @@ export const AussieData = [
         },
         price: {min: '146', max: '408'},
       },
-      {hotelId:'br3',
+      {
+        hotelId: 'br3',
         isFavorite: false,
         name: 'Treasury Brisbane',
         images: [
@@ -67,7 +70,8 @@ export const AussieData = [
     id: 'sy',
     city: 'Sydney',
     hotels: [
-      {hotelId:'sy1',
+      {
+        hotelId: 'sy1',
         isFavorite: false,
         name: 'Emirates One&Only Wolgan Valley',
         images: [
@@ -82,10 +86,11 @@ export const AussieData = [
           'Emirates One&Only Wolgan Valley is an ultra-luxury conservation-based resort, located 2.5 hours’ drive from Sydney (190kms) in the World Heritage-listed Greater Blue Mountains region. Set on 7,000 acres of carbon-neutral conservation and wildlife reserve, the resort combines absolute luxury with a quintessentially Australian bush experience. Occupying just one per cent of the total land area, the resort features 40 elegantly appointed villas reminiscent of the Federation period, each with its own swimming pool, double-sided fireplace and private verandah with stunning valley views. The resort offers a unique blend of seclusion, native wildlife, dramatic natural beauty, conservation and heritage combined with unsurpassed luxury facilities and outstanding food and wine. Emirates One&Only Wolgan Valley is part of One&Only Resorts and a member of Luxury Lodges of Australia.',
         address:
           '2600 Wolgan Rd, Wolgan Valley, New South Wales 2790 Australia',
-        coordinates: {latitude: '175', longitude: '320'},
-        price: {min: '-33.25212', max: '150.1960'},
+        coordinates: {latitude: '-33.25212', longitude: '150.1960'},
+        price: {min: '175', max: '320'},
       },
-      {hotelId:'sy2',
+      {
+        hotelId: 'sy2',
         isFavorite: false,
         name: 'Skye Suites Sydney',
         images: [
@@ -102,7 +107,8 @@ export const AussieData = [
         coordinates: {latitude: '-33.86766', longitude: '151.204471'},
         price: {min: '222', max: '311'},
       },
-      {hotelId:'sy3',
+      {
+        hotelId: 'sy3',
         isFavorite: false,
         name: 'The Langham',
         images: [
@@ -128,7 +134,8 @@ export const AussieData = [
     id: 'gc',
     city: 'Gold Coast',
     hotels: [
-      {hotelId:'gc1',
+      {
+        hotelId: 'gc1',
         isFavorite: false,
         name: 'The Star Grand at The Star Gold Coast',
         images: [
@@ -148,7 +155,8 @@ export const AussieData = [
         },
         price: {min: '185', max: '293'},
       },
-      {hotelId:'gc2',
+      {
+        hotelId: 'gc2',
         isFavorite: false,
         name: 'The Island Gold Coast',
         images: [
@@ -168,7 +176,8 @@ export const AussieData = [
         },
         price: {min: '135', max: '173'},
       },
-      {hotelId:'gc3',
+      {
+        hotelId: 'gc3',
         isFavorite: false,
         name: 'Vibe Hotel Gold Coast',
         images: [

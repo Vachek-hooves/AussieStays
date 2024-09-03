@@ -60,7 +60,10 @@ export const AussieProvider = ({children}) => {
     };
     console.log(newCity);
     try {
-      setHotels(allPrevData => [...allPrevData, newCity]);
+      const updatedHotels = [...hotels, newCity];
+      // setHotels(allPrevData => [...allPrevData, newCity]);
+      setHotels(updatedHotels);
+      await storeData(updatedHotels, 'hotels');
     } catch (error) {}
   };
 

@@ -1,4 +1,9 @@
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import {Colors} from '../../constant/colors';
 import {useAussieContext} from '../../store/aussie_context';
 

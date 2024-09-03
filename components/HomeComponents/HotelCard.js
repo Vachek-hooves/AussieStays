@@ -11,21 +11,38 @@ import {IconAddHotel, IconFavorite} from '../Icon';
 import {Colors} from '../../constant/colors';
 const {height, width} = Dimensions.get('screen');
 const ITEM_WIDTH = width * 0.7;
-const ITEM_HEIGHT = height * 0.2;
+const ITEM_HEIGHT = height * 0.15;
 
 const HotelCard = ({data, cityId, onAddHotel}) => {
   function hotelCard({item}) {
+    const minPrice = item.price.min;
+    const maxPrice = item.price.max;
     const HOTEL_IMG = item.images[0];
     return (
       <TouchableOpacity activeOpacity={0.7} style={styles.container}>
-        <ImageBackground source={{uri: HOTEL_IMG}} style={styles.image}>
-          <Text>{item.name}</Text>
+        <Text style={styles.hotelName}>{item.name}</Text>
+        <ImageBackground
+          source={{uri: HOTEL_IMG}}
+          style={styles.image}></ImageBackground>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginHorizontal: 10,
+          }}>
           <IconFavorite
             isFavorite={item.isFavorite}
             hotelId={item.hotelId}
             cityId={cityId}
           />
-        </ImageBackground>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text>from ${minPrice}</Text>
+          </View>
+        </View>
       </TouchableOpacity>
     );
   }
@@ -36,13 +53,14 @@ const HotelCard = ({data, cityId, onAddHotel}) => {
         activeOpacity={0.7}
         style={[
           styles.container,
-          {height: ITEM_HEIGHT, backgroundColor: Colors.white + 80},
+          {
+            // height: ITEM_HEIGHT,
+            backgroundColor: Colors.white + 80,
+            minHeight: ITEM_HEIGHT,
+          },
         ]}
-        onPress={onAddHotel} // Викликаємо функцію для додавання нового готелю
-      >
-        {/* <Text style={styles.addHotelText}> */}
+        onPress={onAddHotel}>
         <IconAddHotel />
-        {/* </Text> */}
       </TouchableOpacity>
     );
   }
@@ -75,17 +93,23 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   container: {
-    borderWidth: 1,
+    // borderWidth: 1,
     borderRadius: 12,
     marginHorizontal: 10,
     // padding: 20,
     marginVertical: 20,
     width: ITEM_WIDTH,
+    // padding:3
   },
   image: {
     height: ITEM_HEIGHT,
     padding: 5,
     overflow: 'hidden',
     borderRadius: 12,
+    marginBottom: 3,
+  },
+  hotelName: {
+    textAlign: 'center',
+    paddingVertical: 3,
   },
 });
