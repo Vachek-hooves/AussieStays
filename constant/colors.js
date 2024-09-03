@@ -7,4 +7,5 @@ export const Colors = {
   amethyst: '#472580',
   black: '#021526',
   blueSea: '#125B9A',
+  white: '#FFF5E4',
 };

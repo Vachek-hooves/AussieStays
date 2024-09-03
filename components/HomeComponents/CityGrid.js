@@ -1,17 +1,14 @@
 import {
-  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
   Dimensions,
-  ImageBackground,
   ScrollView,
 } from 'react-native';
 import {useAussieContext} from '../../store/aussie_context';
 import HotelCard from './HotelCard';
 const {height, width} = Dimensions.get('screen');
-const ITEM_WIDTH = width * 0.7;
 
 const CityGrid = () => {
   const {hotels} = useAussieContext();
@@ -21,7 +18,7 @@ const CityGrid = () => {
       {hotels.map((city, i) => (
         <View key={i}>
           <CityDetails city={city.city} />
-          <HotelCard data={city.hotels} />
+          <HotelCard data={city.hotels} cityId={city.id} />
         </View>
       ))}
     </ScrollView>

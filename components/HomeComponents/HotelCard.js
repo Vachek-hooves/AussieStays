@@ -2,16 +2,18 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  View,
   TouchableOpacity,
   Dimensions,
   ImageBackground,
 } from 'react-native';
+import {IconFavorite} from '../Icon';
 const {height, width} = Dimensions.get('screen');
 const ITEM_WIDTH = width * 0.7;
 const ITEM_HEIGHT = height * 0.2;
 
-const HotelCard = ({data}) => {
+const HotelCard = ({data, cityId}) => {
+  console.log(cityId);
+
   function hotelCard({item}) {
     const HOTEL_IMG = item.images[0];
     return (
@@ -22,6 +24,11 @@ const HotelCard = ({data}) => {
           // resizeMode="contain"
         >
           <Text>{item.name}</Text>
+          <IconFavorite
+            isFavorite={item.isFavorite}
+            hotelId={item.hotelId}
+            cityId={cityId}
+          />
         </ImageBackground>
       </TouchableOpacity>
     );
