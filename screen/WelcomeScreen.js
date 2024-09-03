@@ -17,20 +17,13 @@ const WelcomeScreen = ({navigation}) => {
       toValue: 1,
       duration: 400,
       useNativeDriver: true,
-    }).start(() => navigation.navigate('FavoriteHotels'));
+    }).start(() => navigation.navigate('HomeScreen'));
   }, [animate]);
 
   return (
     <View style={{backgroundColor: Colors.blueSea, padding: 10, flex: 1}}>
-      <SafeAreaView style={{}}>
-        <View
-          style={{
-            backgroundColor: Colors.matteYellow,
-            borderRadius: 12,
-            overflow: 'hidden',
-            justifyContent: 'flex-start',
-            height: '90%',
-          }}>
+      <SafeAreaView>
+        <View style={styles.subContainer}>
           <Image
             source={require('../assets/img/kangaroo.png')}
             style={styles.heroImg}
@@ -54,6 +47,13 @@ const WelcomeScreen = ({navigation}) => {
 export default WelcomeScreen;
 
 const styles = StyleSheet.create({
+  subContainer: {
+    backgroundColor: Colors.matteYellow,
+    borderRadius: 12,
+    overflow: 'hidden',
+    justifyContent: 'flex-start',
+    height: '90%',
+  },
   // content: {padding: 24},
   header: {paddingHorizontal: 10},
   title: {

@@ -5,6 +5,7 @@ import {AussieData} from '../data/appData';
 export const AussieContext = createContext({
   hotels: [],
   addHotelToFavorite: () => {},
+  createCity: () => {},
 });
 
 export const AussieProvider = ({children}) => {
@@ -49,7 +50,21 @@ export const AussieProvider = ({children}) => {
     }
   };
 
-  const value = {hotels, addHotelToFavorite};
+  const createCity = async name => {
+    const id = new Date().toString();
+
+    const newCity = {
+      id: id,
+      city: name,
+      hotels: [],
+    };
+    console.log(newCity);
+    try {
+      setHotels(allPrevData => [...allPrevData, newCity]);
+    } catch (error) {}
+  };
+
+  const value = {hotels, addHotelToFavorite, createCity};
   return (
     <AussieContext.Provider value={value}>{children}</AussieContext.Provider>
   );
