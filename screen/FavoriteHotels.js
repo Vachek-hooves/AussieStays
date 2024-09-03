@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import {useAussieContext} from '../store/aussie_context';
+import SafeLayout from '../components/Layout/SafeLayout';
 
 const FavoriteHotels = () => {
   const {hotels} = useAussieContext();
@@ -10,13 +11,8 @@ const FavoriteHotels = () => {
     const hotelsList = city.hotels.filter(hotel => hotel.isFavorite);
     return [...acc, ...hotelsList];
   }, []);
-  console.log(favHotels.length);
 
-  return (
-    <View>
-      <Text>FavoriteHotels</Text>
-    </View>
-  );
+  return <SafeLayout></SafeLayout>;
 };
 
 export default FavoriteHotels;

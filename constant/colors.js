@@ -8,4 +8,5 @@ export const Colors = {
   black: '#021526',
   blueSea: '#125B9A',
   white: '#FFF5E4',
+  inActive: '#3C3D37',
 };

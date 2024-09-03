@@ -17,7 +17,7 @@ const WelcomeScreen = ({navigation}) => {
       toValue: 1,
       duration: 400,
       useNativeDriver: true,
-    }).start(() => navigation.navigate('HomeScreen'));
+    }).start(() => navigation.navigate('TabNavigation'));
   }, [animate]);
 
   return (
