@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import SafeLayout from '../components/Layout/SafeLayout';
 import IconReturn from '../components/Icon/IconReturn';
-import {HotelName} from '../components/HotelDetails';
+import {HotelAddress, HotelImages, HotelName} from '../components/HotelDetails';
 
 const HotelDetailsScreen = ({route}) => {
   const hotelData = route.params;
@@ -15,10 +15,12 @@ const HotelDetailsScreen = ({route}) => {
   const hotelId = hotelData.hotelId;
   const images = hotelData.images;
 
-  console.log(images);
+  //   console.log(images);
   return (
     <SafeLayout>
       <HotelName name={name} />
+      <HotelImages images={images} />
+      <HotelAddress address={address} />
       <IconReturn />
     </SafeLayout>
   );
