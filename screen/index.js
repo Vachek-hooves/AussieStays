@@ -4,6 +4,7 @@ import FavoriteHotels from './FavoriteHotels';
 import MapScreen from './MapScreen';
 import HotelScreen from './HotelScreen';
 import ProfileScreen from './ProfileScreen';
+import HotelDetailsScreen from './HotelDetailsScreen';
 
 export {
   WelcomeScreen,
@@ -12,4 +13,5 @@ export {
   MapScreen,
   HotelScreen,
   ProfileScreen,
+  HotelDetailsScreen,
 };

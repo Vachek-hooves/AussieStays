@@ -1,8 +1,12 @@
 import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Colors} from '../../constant/colors';
 import {useAussieContext} from '../../store/aussie_context';
+import {useNavigation} from '@react-navigation/native';
 
-const IconAddHotel = () => {
+const IconAddHotel = ({data}) => {
+  
+  const navigation = useNavigation();
+
   function addHotelCall() {
     console.log('create new hotel');
   }

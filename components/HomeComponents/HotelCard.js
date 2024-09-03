@@ -9,17 +9,29 @@ import {
 } from 'react-native';
 import {IconAddHotel, IconFavorite} from '../Icon';
 import {Colors} from '../../constant/colors';
+import {useNavigation} from '@react-navigation/native';
+
 const {height, width} = Dimensions.get('screen');
 const ITEM_WIDTH = width * 0.7;
 const ITEM_HEIGHT = height * 0.15;
 
-const HotelCard = ({data, cityId, onAddHotel}) => {
+const HotelCard = ({data, cityId}) => {
+  const navigation = useNavigation();
+
   function hotelCard({item}) {
     const minPrice = item.price.min;
     const maxPrice = item.price.max;
     const HOTEL_IMG = item.images[0];
+
+    function showHotelDetails() {
+      navigation.navigate('HotelDetailsScreen', item);
+    }
+
     return (
-      <TouchableOpacity activeOpacity={0.7} style={styles.container}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={styles.container}
+        onPress={showHotelDetails}>
         <Text style={styles.hotelName}>{item.name}</Text>
         <ImageBackground
           source={{uri: HOTEL_IMG}}
@@ -54,12 +66,10 @@ const HotelCard = ({data, cityId, onAddHotel}) => {
         style={[
           styles.container,
           {
-            // height: ITEM_HEIGHT,
             backgroundColor: Colors.white + 80,
             minHeight: ITEM_HEIGHT,
           },
-        ]}
-        onPress={onAddHotel}>
+        ]}>
         <IconAddHotel />
       </TouchableOpacity>
     );
@@ -99,7 +109,8 @@ const styles = StyleSheet.create({
     // padding: 20,
     marginVertical: 20,
     width: ITEM_WIDTH,
-    // padding:3
+    padding: 5,
+    backgroundColor: Colors.white + 20,
   },
   image: {
     height: ITEM_HEIGHT,

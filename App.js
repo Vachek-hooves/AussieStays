@@ -7,6 +7,7 @@ import {AussieProvider} from './store/aussie_context';
 import {
   FavoriteHotels,
   HomeScreen,
+  HotelDetailsScreen,
   MapScreen,
   ProfileScreen,
   WelcomeScreen,
@@ -73,6 +74,10 @@ function App() {
           />
           <Stack.Screen name="TabNavigation" component={TabNavigator} />
           <Stack.Screen name="MapScreen" component={MapScreen} />
+          <Stack.Screen
+            name="HotelDetailsScreen"
+            component={HotelDetailsScreen}
+          />
           {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
           {/* <Stack.Screen name="FavoriteHotels" component={FavoriteHotels} /> */}
         </Stack.Navigator>
