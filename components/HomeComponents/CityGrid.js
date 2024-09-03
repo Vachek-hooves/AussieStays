@@ -27,7 +27,7 @@ const CityGrid = () => {
 
 const CityDetails = ({city}) => {
   function cityDetails() {
-    console.log('This city-', city);
+    // console.log('This city-', city);
   }
   return (
     <TouchableOpacity onPress={cityDetails}>

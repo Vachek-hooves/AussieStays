@@ -5,7 +5,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {View} from 'react-native';
 import {AussieProvider} from './store/aussie_context';
-import {HomeScreen, WelcomeScreen} from './screen';
+import {FavoriteHotels, HomeScreen, WelcomeScreen} from './screen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -30,6 +30,7 @@ function App() {
             // }}
           />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="FavoriteHotels" component={FavoriteHotels} />
         </Stack.Navigator>
       </NavigationContainer>
     </AussieProvider>

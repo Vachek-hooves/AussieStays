@@ -12,7 +12,7 @@ const ITEM_WIDTH = width * 0.7;
 const ITEM_HEIGHT = height * 0.2;
 
 const HotelCard = ({data, cityId}) => {
-  console.log(cityId);
+  
 
   function hotelCard({item}) {
     const HOTEL_IMG = item.images[0];

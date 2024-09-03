@@ -29,16 +29,13 @@ export const AussieProvider = ({children}) => {
 
   const addHotelToFavorite = async (cityId, hotelId) => {
     try {
-      // const updatedData = hotels.find(city => city.id === cityId);
       const updatedData = hotels.map(city => {
         if (city.id === cityId) {
-          // console.log(city)
           const updatedCityHotel = city.hotels.map(hotel => {
             if (hotel.hotelId === hotelId) {
-              console.log(hotel);
               return {...hotel, isFavorite: !hotel.isFavorite};
             }
-            console.log(updatedCityHotel);
+
             return hotel;
           });
           return {...city, hotels: updatedCityHotel};
@@ -47,8 +44,9 @@ export const AussieProvider = ({children}) => {
       });
       await storeData(updatedData, 'hotels');
       setHotels(updatedData);
-      // console.log(updatedData);
-    } catch (error) {}
+    } catch (error) {
+      throw new Error('Hotel favorite fn error', error);
+    }
   };
 
   const value = {hotels, addHotelToFavorite};

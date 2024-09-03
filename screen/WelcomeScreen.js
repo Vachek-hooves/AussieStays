@@ -17,9 +17,8 @@ const WelcomeScreen = ({navigation}) => {
       toValue: 1,
       duration: 400,
       useNativeDriver: true,
-    }).start(() => navigation.navigate('HomeScreen'));
+    }).start(() => navigation.navigate('FavoriteHotels'));
   }, [animate]);
-  
 
   return (
     <View style={{backgroundColor: Colors.blueSea, padding: 10, flex: 1}}>
