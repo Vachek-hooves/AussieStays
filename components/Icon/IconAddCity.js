@@ -1,9 +1,4 @@
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Colors} from '../../constant/colors';
 import {useAussieContext} from '../../store/aussie_context';
 
@@ -35,10 +30,10 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
-    tintColor: Colors.yellow,
+    tintColor: Colors.matteYellow,
     alignSelf: 'flex-end',
     //   margin: 30,
     marginRight: 5,
   },
-  text: {fontWeight: '900', fontSize: 32, color: Colors.yellow},
+  text: {fontWeight: '900', fontSize: 32, color: Colors.matteYellow},
 });

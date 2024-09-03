@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {useAussieContext} from '../../store/aussie_context';
 import HotelCard from './HotelCard';
+import {Colors} from '../../constant/colors';
 const {height, width} = Dimensions.get('screen');
 
 const CityGrid = () => {
@@ -31,9 +32,12 @@ const CityDetails = ({city}) => {
     // console.log('This city-', city);
   }
   return (
-    <TouchableOpacity onPress={cityDetails}>
-      <Text>{city}</Text>
-    </TouchableOpacity>
+    <View>
+      <Text
+        style={{fontWeight: '800', color: Colors.matteYellow, fontSize: 22}}>
+        {city}
+      </Text>
+    </View>
   );
 };
 

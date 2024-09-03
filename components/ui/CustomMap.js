@@ -8,6 +8,8 @@ const CustomMap = ({latitude, longitude}) => {
       initialRegion={{
         latitude: latitude,
         longitude: longitude,
+        latitudeDelta: 0.922,
+        longitudeDelta: 0.421,
       }}>
       <Marker
         coordinate={{

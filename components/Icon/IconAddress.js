@@ -5,7 +5,7 @@ const IconAddress = () => {
   return (
     <Image
       source={require('../../assets/icons/address.png')}
-      style={{width: 30, height: 30, tintColor: Colors.amethyst}}
+      style={{width: 30, height: 30, tintColor: Colors.matteYellow}}
     />
   );
 };

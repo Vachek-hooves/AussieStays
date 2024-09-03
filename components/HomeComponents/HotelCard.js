@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     width: ITEM_WIDTH,
     padding: 5,
-    backgroundColor: Colors.white + 20,
+    backgroundColor: Colors.matteYellow,
   },
   image: {
     height: ITEM_HEIGHT,
@@ -122,5 +122,8 @@ const styles = StyleSheet.create({
   hotelName: {
     textAlign: 'center',
     paddingVertical: 3,
+    fontWeight: '600',
+    fontSize: 18,
+    color: Colors.blueSea,
   },
 });

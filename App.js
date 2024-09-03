@@ -24,8 +24,8 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: Colors.green,
-        tabBarInactiveTintColor: Colors.inActive + 80,
+        tabBarActiveTintColor: Colors.blueSea,
+        tabBarInactiveTintColor: Colors.matteYellow + 80,
         headerShown: false,
         title: '',
         tabBarStyle: styles.tabBarStyle,
@@ -90,17 +90,21 @@ export default App;
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: Colors.amethyst,
-    borderRadius: 22,
+    // backgroundColor: Colors.matteYellow,
+    backgroundColor: Colors.green,
+    borderRadius: 32,
     height: 105,
     padding: 5,
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
+    // paddingHorizontal: 20,
+    marginHorizontal: 5,
+    marginBottom: 5,
   },
   tabBarItemStyle: {
     flex: 1,
-    backgroundColor: Colors.white,
+    // backgroundColor: Colors.white,
     borderRadius: 22,
     margin: 5,
   },

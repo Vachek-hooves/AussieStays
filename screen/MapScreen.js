@@ -1,9 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
 import {CustomMap} from '../components/ui';
 
 const MapScreen = ({route}) => {
   console.log(route.params);
+  const {latitude, longitude} = route.params;
+  console.log(latitude, longitude);
   return (
     <View>
       <Text>MapScreen</Text>

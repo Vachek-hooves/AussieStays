@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import SafeLayout from '../components/Layout/SafeLayout';
 import IconReturn from '../components/Icon/IconReturn';
 import {HotelAddress, HotelImages, HotelName} from '../components/HotelDetails';
+import IconMap from '../components/Icon/IconMap';
 
 const HotelDetailsScreen = ({route}) => {
   const hotelData = route.params;
@@ -21,6 +22,7 @@ const HotelDetailsScreen = ({route}) => {
       <HotelName name={name} />
       <HotelImages images={images} />
       <HotelAddress address={address} />
+      <IconMap latitude={latitude} longitude={longitude} />
       <IconReturn />
     </SafeLayout>
   );

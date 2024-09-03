@@ -3,7 +3,7 @@ import {Colors} from '../../constant/colors';
 
 const SafeLayout = ({children, style}) => {
   return (
-    <View style={{flex: 1, backgroundColor: Colors.green + 90, padding: 10}}>
+    <View style={{flex: 1, backgroundColor: Colors.blueSea, padding: 10}}>
       <SafeAreaView
         style={[
           style,
@@ -11,7 +11,6 @@ const SafeLayout = ({children, style}) => {
             // backgroundColor: Colors.matteYellow,
             height: '100%',
             borderRadius: 22,
-            
           },
         ]}>
         {children}

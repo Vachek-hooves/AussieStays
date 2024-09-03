@@ -5,9 +5,14 @@ import {
   Text,
   View,
   Animated,
+  Dimensions,
 } from 'react-native';
 import {useRef, useEffect, useState} from 'react';
 import {Colors} from '../constant/colors';
+
+const {height} = Dimensions.get('screen');
+
+const NAME_HEIGHT = height * 0.1;
 
 const WelcomeScreen = ({navigation}) => {
   const animate = useRef(new Animated.Value(0)).current;
@@ -15,7 +20,7 @@ const WelcomeScreen = ({navigation}) => {
   useEffect(() => {
     Animated.timing(animate, {
       toValue: 1,
-      duration: 400,
+      duration: 800,
       useNativeDriver: true,
     }).start(() => navigation.navigate('TabNavigation'));
   }, [animate]);
@@ -31,13 +36,48 @@ const WelcomeScreen = ({navigation}) => {
             imageStyle={styles.heroImg}
           />
         </View>
-        <View style={styles.header}>
+        {/* <View style={styles.header}>
           <Text style={styles.title}>
-            Welcome to{' '}
+            Welcome{' '}
+            <View style={{zIndex: 1}}>
+              <Text style={{color: Colors.blueSea, fontSize: 20}}>to</Text>
+            </View>
             <View style={styles.appName}>
               <Text style={styles.appNameText}>Aussie Stays</Text>
             </View>
           </Text>
+        </View> */}
+        <View
+          style={{
+            position: 'absolute',
+            top: NAME_HEIGHT,
+            width: '100%',
+          }}>
+          <Text
+            style={{
+              fontSize: 36,
+              lineHeight: 40,
+              fontWeight: '700',
+              color: Colors.green,
+              // textAlign: 'center',
+              marginLeft: 30,
+            }}>
+            Welcome
+          </Text>
+          <Text
+            style={{
+              fontSize: 36,
+              lineHeight: 40,
+              fontWeight: '700',
+              color: Colors.blueSea,
+              textAlign: 'center',
+              // marginLeft: 30,
+            }}>
+            to
+          </Text>
+          <View style={styles.appName}>
+            <Text style={styles.appNameText}>Aussie Stays</Text>
+          </View>
         </View>
       </SafeAreaView>
     </View>
@@ -52,18 +92,21 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
     justifyContent: 'flex-start',
-    height: '90%',
+    height: '100%',
   },
   // content: {padding: 24},
-  header: {paddingHorizontal: 10},
+  header: {paddingHorizontal: 10, position: 'absolute'},
   title: {
-    fontSize: 28,
+    fontSize: 36,
     lineHeight: 40,
-    fontWeight: '500',
-    color: Colors.matteYellow,
+    fontWeight: '700',
+    color: Colors.green,
     textAlign: 'center',
-    marginBottom: 12,
-    marginTop: 20,
+    // marginBottom: 12,
+    // marginTop: 20,
+    width: '80%',
+    top: NAME_HEIGHT,
+    right: 0,
   },
   message: {
     fontSize: 15,
@@ -91,10 +134,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green,
     paddingHorizontal: 8,
     transform: [{rotate: '-10deg'}],
+    width: '90%',
+
+    marginHorizontal: 20,
   },
   appNameText: {
     color: Colors.matteYellow,
-    fontWeight: '800',
-    fontSize: 30,
+    fontWeight: '900',
+    fontSize: 36,
+    letterSpacing: 3,
+    textAlign: 'center',
   },
 });
