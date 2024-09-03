@@ -14,7 +14,7 @@ const CityGrid = () => {
   const {hotels} = useAussieContext();
 
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       {hotels.map((city, i) => (
         <View key={i}>
           <CityDetails city={city.city} />

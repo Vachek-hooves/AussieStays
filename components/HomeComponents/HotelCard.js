@@ -5,24 +5,20 @@ import {
   TouchableOpacity,
   Dimensions,
   ImageBackground,
+  View,
 } from 'react-native';
-import {IconFavorite} from '../Icon';
+import {IconAddHotel, IconFavorite} from '../Icon';
+import {Colors} from '../../constant/colors';
 const {height, width} = Dimensions.get('screen');
 const ITEM_WIDTH = width * 0.7;
 const ITEM_HEIGHT = height * 0.2;
 
-const HotelCard = ({data, cityId}) => {
-  
-
+const HotelCard = ({data, cityId, onAddHotel}) => {
   function hotelCard({item}) {
     const HOTEL_IMG = item.images[0];
     return (
       <TouchableOpacity activeOpacity={0.7} style={styles.container}>
-        <ImageBackground
-          source={{uri: HOTEL_IMG}}
-          style={styles.image}
-          // resizeMode="contain"
-        >
+        <ImageBackground source={{uri: HOTEL_IMG}} style={styles.image}>
           <Text>{item.name}</Text>
           <IconFavorite
             isFavorite={item.isFavorite}
@@ -33,20 +29,51 @@ const HotelCard = ({data, cityId}) => {
       </TouchableOpacity>
     );
   }
+
+  function renderAddHotelCard() {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={[
+          styles.container,
+          {height: ITEM_HEIGHT, backgroundColor: Colors.white + 80},
+        ]}
+        onPress={onAddHotel} // Викликаємо функцію для додавання нового готелю
+      >
+        {/* <Text style={styles.addHotelText}> */}
+        <IconAddHotel />
+        {/* </Text> */}
+      </TouchableOpacity>
+    );
+  }
+
   return (
-    <FlatList
-      data={data}
-      keyExtractor={item => item.hotelId.toString()}
-      renderItem={hotelCard}
-      showsHorizontalScrollIndicator={false}
-      horizontal
-    />
+    <View>
+      <FlatList
+        data={[...data, {isAddButton: true}]} // Додаємо фіктивний об'єкт в кінець списку
+        keyExtractor={(item, index) =>
+          item.hotelId?.toString() || index.toString()
+        }
+        renderItem={({item}) =>
+          item.isAddButton ? renderAddHotelCard() : hotelCard({item})
+        }
+        showsHorizontalScrollIndicator={false}
+        horizontal
+      />
+    </View>
   );
 };
 
 export default HotelCard;
 
 const styles = StyleSheet.create({
+  addHotelContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 8,
+  },
   container: {
     borderWidth: 1,
     borderRadius: 12,
