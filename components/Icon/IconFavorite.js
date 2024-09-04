@@ -15,7 +15,7 @@ const IconFavorite = ({isFavorite, hotelId, cityId}) => {
         style={{
           width: 30,
           height: 30,
-          tintColor: isFavorite ? Colors.yellow : Colors.white + 90,
+          tintColor: isFavorite ? Colors.yellow : Colors.white,
           //   tintColor: Colors.yellow,
         }}
       />

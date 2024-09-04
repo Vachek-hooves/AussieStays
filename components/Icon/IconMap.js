@@ -10,9 +10,9 @@ import React from 'react';
 import {Colors} from '../../constant/colors';
 import {useNavigation} from '@react-navigation/native';
 
-const IconMap = ({latitude, longitude}) => {
+const IconMap = ({latitude, longitude, name}) => {
   const navigation = useNavigation();
-  const position = {latitude, longitude};
+  const position = {latitude, longitude, name};
 
   return (
     <TouchableOpacity
@@ -20,7 +20,7 @@ const IconMap = ({latitude, longitude}) => {
       style={{}}>
       <Image
         source={require('../../assets/icons/map.png')}
-        style={{width: 60, height: 60, tintColor: Colors.matteYellow}}
+        style={{width: 40, height: 40, tintColor: Colors.matteYellow}}
       />
     </TouchableOpacity>
   );

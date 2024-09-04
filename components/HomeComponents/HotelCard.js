@@ -52,7 +52,7 @@ const HotelCard = ({data, cityId}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text>from ${minPrice}</Text>
+            <Text style={{color: Colors.green}}>from ${minPrice}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     width: ITEM_WIDTH,
     padding: 5,
-    backgroundColor: Colors.matteYellow,
+    // backgroundColor: Colors.matteYellow,
+    backgroundColor: Colors.white + 90,
   },
   image: {
     height: ITEM_HEIGHT,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 3,
     fontWeight: '600',
-    fontSize: 18,
+    fontSize: 16,
     color: Colors.blueSea,
   },
 });

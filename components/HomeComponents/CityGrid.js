@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Dimensions,
-  ScrollView,
-} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, ScrollView} from 'react-native';
 import {useAussieContext} from '../../store/aussie_context';
 import HotelCard from './HotelCard';
 import {Colors} from '../../constant/colors';
@@ -28,13 +21,14 @@ const CityGrid = () => {
 };
 
 const CityDetails = ({city}) => {
-  function cityDetails() {
-    // console.log('This city-', city);
-  }
   return (
     <View>
       <Text
-        style={{fontWeight: '800', color: Colors.matteYellow, fontSize: 22}}>
+        style={{
+          fontWeight: '800',
+          color: Colors.blueBottle + 90,
+          fontSize: 22,
+        }}>
         {city}
       </Text>
     </View>

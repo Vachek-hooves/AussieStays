@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
-    tintColor: Colors.matteYellow,
+    tintColor: Colors.blueBottle + 90,
     alignSelf: 'flex-end',
     //   margin: 30,
     marginRight: 5,
   },
-  text: {fontWeight: '900', fontSize: 32, color: Colors.matteYellow},
+  text: {fontWeight: '900', fontSize: 32, color: Colors.blueBottle + 90},
 });
