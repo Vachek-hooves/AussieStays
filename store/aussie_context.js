@@ -8,6 +8,7 @@ export const AussieContext = createContext({
   createCity: () => {},
   createHotel: () => {},
   deleteCity: () => {},
+  deleteHotel: () => {},
 });
 
 export const AussieProvider = ({children}) => {
@@ -98,6 +99,23 @@ export const AussieProvider = ({children}) => {
       throw new Error('Delete city error', error);
     }
   };
+  const deleteHotel = async (cityId, hotelId) => {
+    try {
+      const updatedData = hotels.map(city => {
+        if (city.id === cityId) {
+          return {
+            ...city,
+            hotels: city.hotels.filter(hotel => hotel.hotelId !== hotelId),
+          };
+        }
+        return city;
+      });
+      await storeData(updatedData, 'hotels');
+      setHotels(updatedData);
+    } catch (error) {
+      throw new Error('Delete hotel error', error);
+    }
+  };
 
   const value = {
     hotels,
@@ -105,6 +123,7 @@ export const AussieProvider = ({children}) => {
     createCity,
     createHotel,
     deleteCity,
+    deleteHotel,
   };
   return (
     <AussieContext.Provider value={value}>{children}</AussieContext.Provider>

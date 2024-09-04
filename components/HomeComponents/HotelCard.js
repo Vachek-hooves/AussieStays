@@ -7,7 +7,7 @@ import {
   ImageBackground,
   View,
 } from 'react-native';
-import {IconAddHotel, IconFavorite} from '../Icon';
+import {IconAddHotel, IconDeleteHotel, IconFavorite} from '../Icon';
 import {Colors} from '../../constant/colors';
 import {useNavigation} from '@react-navigation/native';
 
@@ -23,6 +23,7 @@ const HotelCard = ({data, cityId}) => {
     const minPrice = item.price.min;
     const maxPrice = item.price.max;
     const HOTEL_IMG = item.images[0];
+    const hotelId = item.hotelId;
 
     function showHotelDetails() {
       navigation.navigate('HotelDetailsScreen', {hotel: item, cityId: cityId});
@@ -53,7 +54,8 @@ const HotelCard = ({data, cityId}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text style={{color: Colors.green}}>from ${minPrice}</Text>
+            {/* <Text style={{color: Colors.green}}>from ${minPrice}</Text> */}
+            <IconDeleteHotel cityId={cityId} hotelId={hotelId} />
           </View>
         </View>
       </TouchableOpacity>

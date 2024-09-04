@@ -1,20 +1,11 @@
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Modal,
-} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Colors} from '../../constant/colors';
 import {useAussieContext} from '../../store/aussie_context';
-import {useState} from 'react';
 
 const IconDeleteCity = ({cityId}) => {
   const {deleteCity} = useAussieContext();
 
   function cityDeleteCall() {
-    console.log(cityId);
     deleteCity(cityId);
   }
 
@@ -34,9 +25,6 @@ const styles = StyleSheet.create({
   image: {
     width: 20,
     height: 20,
-    tintColor: Colors.red + 90,
-    alignSelf: 'flex-end',
-    //   margin: 30,
-    marginRight: 5,
+    tintColor: Colors.red + 50,
   },
 });
