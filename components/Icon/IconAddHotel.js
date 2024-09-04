@@ -1,22 +1,40 @@
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, Modal} from 'react-native';
 import {Colors} from '../../constant/colors';
-import {useAussieContext} from '../../store/aussie_context';
 import {useNavigation} from '@react-navigation/native';
+import {useState} from 'react';
+import {CreateNewHotel} from '../HomeComponents';
+import {useAussieContext} from '../../store/aussie_context';
 
-const IconAddHotel = ({data}) => {
-  
-  const navigation = useNavigation();
+const IconAddHotel = ({data, cityId}) => {
+  const {createHotel} = useAussieContext();
+  const [isNewHotel, setIsNewHotel] = useState(false);
 
-  function addHotelCall() {
-    console.log('create new hotel');
-  }
+  // function addHotelCall() {
+  //   console.log('create new hotel');
+  // }
+  // function createNewHotel() {}
+
+  const handleCreateHotel = newHotel => {
+    // console.log(newHotel);
+    setIsNewHotel(false);
+    createHotel(cityId, newHotel);
+  };
+
   return (
-    <TouchableOpacity onPress={addHotelCall} style={styles.rootContainer}>
+    <TouchableOpacity
+      onPress={() => setIsNewHotel(true)}
+      style={styles.rootContainer}>
       <Image
         source={require('../../assets/icons/hotel.png')}
         style={styles.image}
       />
       <Text style={styles.text}>+</Text>
+      <Modal visible={isNewHotel} animationType="slide" transparent={false}>
+        <CreateNewHotel
+          closeModal={() => setIsNewHotel(false)}
+          onSubmit={handleCreateHotel}
+        />
+      </Modal>
     </TouchableOpacity>
   );
 };
@@ -27,16 +45,11 @@ const styles = StyleSheet.create({
   image: {
     width: 60,
     height: 60,
-    // tintColor: Colors.yellow,
-    // alignSelf: 'flex-end',
-    //   margin: 30,
     marginRight: 5,
   },
   rootContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // margin: 20,
-    // alignSelf: 'flex-end',
     justifyContent: 'center',
     flex: 1,
   },

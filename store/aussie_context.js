@@ -6,6 +6,7 @@ export const AussieContext = createContext({
   hotels: [],
   addHotelToFavorite: () => {},
   createCity: () => {},
+  createHotel: () => {},
 });
 
 export const AussieProvider = ({children}) => {
@@ -58,7 +59,7 @@ export const AussieProvider = ({children}) => {
       city: name,
       hotels: [],
     };
-    console.log(newCity);
+    // console.log(newCity);
     try {
       const updatedHotels = [...hotels, newCity];
       // setHotels(allPrevData => [...allPrevData, newCity]);
@@ -67,7 +68,27 @@ export const AussieProvider = ({children}) => {
     } catch (error) {}
   };
 
-  const value = {hotels, addHotelToFavorite, createCity};
+  const createHotel = async (cityId, newHotel) => {
+    console.log('CONTEXT- ', cityId, newHotel);
+
+    try {
+      const updatedData = hotels.map(city => {
+        if (city.id === cityId) {
+          return {
+            ...city,
+            hotels: [...city.hotels, newHotel],
+          };
+        }
+        return city;
+      });
+      await storeData(updatedData, 'hotels');
+      setHotels(updatedData);
+    } catch (error) {
+      throw new Error('create hotel error', error);
+    }
+  };
+
+  const value = {hotels, addHotelToFavorite, createCity, createHotel};
   return (
     <AussieContext.Provider value={value}>{children}</AussieContext.Provider>
   );

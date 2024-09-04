@@ -16,7 +16,7 @@ const IconAddCity = () => {
   const [isNewCity, setIsNewCity] = useState(false);
   const [cityName, setCityName] = useState('New City');
   const [isActive, setIsActive] = useState(false);
-  console.log(cityName);
+  // console.log(cityName);
 
   function closeModal() {
     setIsActive(false);
