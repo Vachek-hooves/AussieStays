@@ -11,8 +11,8 @@ import {Colors} from '../../constant/colors';
 import {useNavigation} from '@react-navigation/native';
 
 const {height, width} = Dimensions.get('screen');
-const MARGIN_BOTTOM = height * 0.1;
-const RIGHT_MARGIN = width * 0.1;
+const MARGIN_BOTTOM = height * 0.05;
+const RIGHT_MARGIN = width * 0.08;
 
 const IconReturn = () => {
   const navigation = useNavigation();
@@ -27,7 +27,7 @@ const IconReturn = () => {
       }}>
       <Image
         source={require('../../assets/icons/backward.png')}
-        style={{width: 60, height: 60, tintColor: Colors.matteYellow}}
+        style={{width: 60, height: 60, tintColor: Colors.amethyst}}
       />
     </TouchableOpacity>
   );

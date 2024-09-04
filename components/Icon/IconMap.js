@@ -20,7 +20,7 @@ const IconMap = ({latitude, longitude, name}) => {
       style={{}}>
       <Image
         source={require('../../assets/icons/map.png')}
-        style={{width: 40, height: 40, tintColor: Colors.matteYellow}}
+        style={{width: 40, height: 40, tintColor: Colors.amethyst}}
       />
     </TouchableOpacity>
   );

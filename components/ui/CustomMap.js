@@ -36,22 +36,24 @@ const CustomMap = ({latitude, longitude}) => {
     });
   };
   return (
-    <MapView
-      style={styles.rootContainer}
-      // initialRegion={{
-      //   latitude: latitude,
-      //   longitude: longitude,
-      //   latitudeDelta: 0.052,
-      //   longitudeDelta: 0.051,
-      // }}
-      region={region}
-      onRegionChangeComplete={region => setRegion(region)}>
-      <Marker
-        coordinate={{
-          latitude: latitude,
-          longitude: longitude,
-        }}
-      />
+    <View>
+      <MapView
+        style={styles.rootContainer}
+        // initialRegion={{
+        //   latitude: latitude,
+        //   longitude: longitude,
+        //   latitudeDelta: 0.052,
+        //   longitudeDelta: 0.051,
+        // }}
+        region={region}
+        onRegionChangeComplete={region => setRegion(region)}>
+        <Marker
+          coordinate={{
+            latitude: latitude,
+            longitude: longitude,
+          }}
+        />
+      </MapView>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.button} onPress={zoomIn}>
           <Text style={styles.buttonText}>+</Text>
@@ -60,7 +62,7 @@ const CustomMap = ({latitude, longitude}) => {
           <Text style={styles.buttonText}>-</Text>
         </TouchableOpacity>
       </View>
-    </MapView>
+    </View>
   );
 };
 

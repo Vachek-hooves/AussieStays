@@ -1,8 +1,14 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import SafeLayout from '../components/Layout/SafeLayout';
 import IconReturn from '../components/Icon/IconReturn';
-import {HotelAddress, HotelImages, HotelName} from '../components/HotelDetails';
+import {
+  HotelAddress,
+  HotelDiscription,
+  HotelImages,
+  HotelName,
+} from '../components/HotelDetails';
 import IconMap from '../components/Icon/IconMap';
+import {CustomCalendar} from '../components/ui';
 
 const HotelDetailsScreen = ({route}) => {
   const hotelData = route.params.hotel;
@@ -20,9 +26,18 @@ const HotelDetailsScreen = ({route}) => {
   return (
     <SafeLayout>
       <HotelName name={name} />
-      <HotelImages images={images} />
-      <HotelAddress address={address} />
-      <IconMap latitude={latitude} longitude={longitude} name={name} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <HotelImages images={images} />
+        <HotelAddress
+          address={address}
+          latitude={latitude}
+          longitude={longitude}
+          name={name}
+        />
+        <HotelDiscription text={description} />
+        <CustomCalendar />
+      </ScrollView>
+      <View style={{height: 70}}></View>
       <IconReturn />
     </SafeLayout>
   );

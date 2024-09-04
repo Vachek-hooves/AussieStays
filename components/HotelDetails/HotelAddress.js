@@ -3,12 +3,12 @@ import React from 'react';
 import IconAddress from '../Icon/IconAddress';
 import IconMap from '../Icon/IconMap';
 
-const HotelAddress = ({address}) => {
+const HotelAddress = ({address, name, latitude, longitude}) => {
   return (
-    <View style={{flexDirection: 'row', gap: 10, padding: 15, maxWidth: '80%'}}>
+    <View style={{flexDirection: 'row', gap: 10, padding: 15, maxWidth: '70%'}}>
       <IconAddress />
       <Text>{address}</Text>
-      <IconMap />
+      <IconMap latitude={latitude} longitude={longitude} name={name} />
     </View>
   );
 };

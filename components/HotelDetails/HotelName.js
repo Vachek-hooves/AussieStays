@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     letterSpacing: 2,
-    color: Colors.matteYellow,
+    color: Colors.amethyst,
   },
 });
