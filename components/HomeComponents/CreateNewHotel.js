@@ -9,6 +9,7 @@ import {
 import React, {useState} from 'react';
 import SafeLayout from '../Layout/SafeLayout';
 import {Colors} from '../../constant/colors';
+import ImagePicker from '../ui/ImagesPicker';
 
 const CreateNewHotel = ({closeModal, onSubmit}) => {
   const [hotelName, setHotelName] = useState('');
@@ -18,6 +19,7 @@ const CreateNewHotel = ({closeModal, onSubmit}) => {
   const [hotelDescription, setHotelDescription] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [images, setImages] = useState([]);
 
   const handleCreate = () => {
     const newHotel = {
@@ -27,11 +29,14 @@ const CreateNewHotel = ({closeModal, onSubmit}) => {
       address: hotelAddress,
       price: {min: hotelMinPrice, max: hotelMaxPrice},
       description: hotelDescription,
-      images: [], // Додайте URL-адреси зображень або залиште порожнім, якщо не потрібно
+      images: images, // Додайте URL-адреси зображень або залиште порожнім, якщо не потрібно
       coordinates: {latitude: latitude, longitude: longitude}, // Можливо, ви захочете додати координати
     };
     onSubmit(newHotel);
   };
+  function imageHandler(image) {
+    setImages(prevImage => [...prevImage, ...image]);
+  }
   return (
     <SafeLayout>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -87,6 +92,11 @@ const CreateNewHotel = ({closeModal, onSubmit}) => {
               onChangeText={setLongitude}
               keyboardType="numeric"
             />
+            <ImagePicker
+              style={styles.imagePicker}
+              handleImage={image => imageHandler(image)}>
+              Chose Images
+            </ImagePicker>
 
             <View style={styles.buttonContainer}>
               <Button title="CANCEL" onPress={closeModal} color="red" />
@@ -143,5 +153,20 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  imagePicker: {
+    // width: '100%',
+    padding: 10,
+    marginBottom: 10,
+    borderWidth: 1,
+    // borderColor: 'gray',
+    // borderRadius: 5,
+    backgroundColor: Colors.blueBottle + 60,
+    borderWidth: 2,
+    borderColor: Colors.matteYellow,
+    color: Colors.amethyst,
+    fontSize: 20,
+    fontWeight: '600',
+    alignItems: 'center',
   },
 });

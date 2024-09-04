@@ -10,6 +10,7 @@ import SafeLayout from '../Layout/SafeLayout';
 import IconReturn from '../Icon/IconReturn';
 import {Colors} from '../../constant/colors';
 
+
 const CreateNewCityModal = ({
   closeModal,
   cityName,
