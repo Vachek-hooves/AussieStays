@@ -1,9 +1,8 @@
-import {StyleSheet, Text, View, Dimensions, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {useAussieContext} from '../../store/aussie_context';
 import HotelCard from './HotelCard';
 import {Colors} from '../../constant/colors';
 import {IconDeleteCity} from '../Icon';
-const {height, width} = Dimensions.get('screen');
 
 const CityGrid = () => {
   const {hotels} = useAussieContext();
@@ -16,7 +15,6 @@ const CityGrid = () => {
           <HotelCard data={city.hotels} cityId={city.id} />
         </View>
       ))}
-      {/* <View style={{height: 200}}></View> */}
     </ScrollView>
   );
 };
@@ -25,7 +23,6 @@ const CityDetails = ({city, cityId}) => {
   return (
     <View
       style={{
-        // justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
         gap: 15,

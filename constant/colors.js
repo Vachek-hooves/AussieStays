@@ -9,4 +9,5 @@ export const Colors = {
   blueSea: '#125B9A',
   white: '#FFF5E4',
   inActive: '#3C3D37',
+  red: '#D71313',
 };

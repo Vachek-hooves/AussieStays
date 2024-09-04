@@ -7,6 +7,7 @@ export const AussieContext = createContext({
   addHotelToFavorite: () => {},
   createCity: () => {},
   createHotel: () => {},
+  deleteCity: () => {},
 });
 
 export const AussieProvider = ({children}) => {
@@ -88,7 +89,23 @@ export const AussieProvider = ({children}) => {
     }
   };
 
-  const value = {hotels, addHotelToFavorite, createCity, createHotel};
+  const deleteCity = async cityId => {
+    try {
+      const updatedData = hotels.filter(city => city.id !== cityId);
+      await storeData(updatedData, 'hotels');
+      setHotels(updatedData);
+    } catch (error) {
+      throw new Error('Delete city error', error);
+    }
+  };
+
+  const value = {
+    hotels,
+    addHotelToFavorite,
+    createCity,
+    createHotel,
+    deleteCity,
+  };
   return (
     <AussieContext.Provider value={value}>{children}</AussieContext.Provider>
   );
