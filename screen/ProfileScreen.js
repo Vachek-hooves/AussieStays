@@ -35,7 +35,13 @@ const ProfileScreen = () => {
           <Text style={styles.text}>Select Photo</Text>
         </ImagePicker>
 
-        {photo && <Image source={{uri: photo}} style={styles.image} />}
+        {photo && (
+          <Image
+            source={{uri: photo}}
+            style={styles.image}
+            resizeMode="contain"
+          />
+        )}
 
         <Button title="SAVE" onPress={handleRegister} />
       </View>
@@ -71,8 +77,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 150,
     borderRadius: 50,
     marginBottom: 20,
     alignSelf: 'center',
