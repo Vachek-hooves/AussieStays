@@ -5,8 +5,9 @@ import {HotelAddress, HotelImages, HotelName} from '../components/HotelDetails';
 import IconMap from '../components/Icon/IconMap';
 
 const HotelDetailsScreen = ({route}) => {
-  const hotelData = route.params;
-  // console.log(route.params);
+  const hotelData = route.params.hotel;
+  console.log(hotelData);
+  console.log(route.params);
   const name = hotelData.name;
   const isFavorite = hotelData.isFavorite;
   const address = hotelData.address;
@@ -16,8 +17,6 @@ const HotelDetailsScreen = ({route}) => {
   const hotelId = hotelData.hotelId;
   const images = hotelData.images;
 
-  //   console.log(images);
-  // console.log(name);
   return (
     <SafeLayout>
       <HotelName name={name} />

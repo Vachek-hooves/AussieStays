@@ -21,6 +21,7 @@ const SafeLayout = ({children, style}) => {
               // backgroundColor: Colors.matteYellow,
               height: '100%',
               borderRadius: 22,
+              
             },
           ]}>
           {children}
