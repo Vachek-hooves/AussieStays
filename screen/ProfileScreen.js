@@ -1,26 +1,61 @@
-import {StyleSheet, Text, TextInput, View, Button, Image} from 'react-native';
-import React, {useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  Image,
+  Alert,
+} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import SafeLayout from '../components/Layout/SafeLayout';
 import ImagePicker, {ImagesPicker} from '../components/ui/ImagesPicker';
 import {Colors} from '../constant/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProfileScreen = () => {
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState(null);
+
+  useEffect(() => {
+    loadUserData();
+  }, []);
+
+  const saveUserData = async () => {
+    try {
+      const userData = JSON.stringify({name, photo});
+      await AsyncStorage.setItem('userProfile', userData);
+      Alert.alert('Data Saved Successfully');
+    } catch (error) {
+      Alert.alert('Failed to save data', error.message);
+    }
+  };
+
+  const loadUserData = async () => {
+    try {
+      const userData = await AsyncStorage.getItem('userProfile');
+      if (userData !== null) {
+        const {name, photo} = JSON.parse(userData);
+        setName(name);
+        setPhoto(photo);
+      }
+    } catch (error) {
+      Alert.alert('Failed to load data', error.message);
+    }
+  };
 
   const handleRegister = () => {
     if (!name || !photo) {
       Alert.alert('Please enter your name and select a photo.');
       return;
     }
-    // Save the user data here or perform further actions
-    Alert.alert('Registration Successful!', `Name: ${name}`);
+    saveUserData();
   };
 
   return (
     <SafeLayout>
       <View style={styles.container}>
-        <Text style={styles.title}>Register</Text>
+        <Text style={styles.title}>Log In</Text>
 
         <TextInput
           style={styles.input}
@@ -64,11 +99,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
+    borderWidth: 2,
+    borderColor: Colors.amethyst,
     padding: 10,
     marginBottom: 20,
     borderRadius: 5,
+    fontSize: 20,
   },
   imagePickerBtn: {
     backgroundColor: Colors.amethyst + 90,
