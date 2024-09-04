@@ -24,7 +24,7 @@ const HotelCard = ({data, cityId}) => {
     const HOTEL_IMG = item.images[0];
 
     function showHotelDetails() {
-      navigation.navigate('HotelDetailsScreen', item);
+      navigation.navigate('HotelDetailsScreen', {hotel: item, cityId: cityId});
     }
 
     return (

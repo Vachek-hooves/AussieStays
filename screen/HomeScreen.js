@@ -8,7 +8,6 @@ const HomeScreen = () => {
     <SafeLayout>
       <IconAddCity />
       <CityGrid />
-      
     </SafeLayout>
   );
 };
