@@ -106,7 +106,9 @@ const ProfileScreen = () => {
           </>
         ) : (
           <>
-            <Text style={styles.title}>{isRegistered ? 'Edit Profile' : 'Log In'}</Text>
+            <Text style={styles.title}>
+              {isRegistered ? 'Edit Profile' : 'Log In'}
+            </Text>
 
             <TextInput
               style={styles.input}
@@ -129,7 +131,10 @@ const ProfileScreen = () => {
               />
             )}
 
-            <Button title={isRegistered ? "SAVE CHANGES" : "SAVE"} onPress={saveUserData} />
+            <Button
+              title={isRegistered ? 'SAVE CHANGES' : 'SAVE'}
+              onPress={saveUserData}
+            />
           </>
         )}
       </View>
@@ -178,7 +183,6 @@ const ProfileScreen = () => {
           </>
         )}
       </View> */}
-      
     </SafeLayout>
   );
 };
@@ -230,6 +234,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: Colors.amethyst,
+    marginVertical: 25,
   },
   text: {color: Colors.matteYellow, fontWeight: '700', fontSize: 18},
 });

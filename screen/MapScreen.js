@@ -25,5 +25,8 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: '700',
     color: Colors.matteYellow,
+    // width: '90%',
+    // alignItems: 'center',
+    marginHorizontal: 20,
   },
 });
