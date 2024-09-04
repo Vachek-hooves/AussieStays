@@ -20,7 +20,7 @@ const WelcomeScreen = ({navigation}) => {
   useEffect(() => {
     Animated.timing(animate, {
       toValue: 1,
-      duration: 800,
+      duration: 1000,
       useNativeDriver: true,
     }).start(() => navigation.navigate('TabNavigation'));
   }, [animate]);
@@ -76,7 +76,7 @@ const WelcomeScreen = ({navigation}) => {
             to
           </Text>
           <View style={styles.appName}>
-            <Text style={styles.appNameText}>Aussie Stays</Text>
+            <Text style={styles.appNameText}>Teasury & Other Hotels Guide</Text>
           </View>
         </View>
       </SafeAreaView>
