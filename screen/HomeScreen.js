@@ -4,6 +4,7 @@ import CityGrid from '../components/HomeComponents/CityGrid';
 import {IconAddCity} from '../components/Icon';
 
 const HomeScreen = () => {
+  
   return (
     <SafeLayout>
       <IconAddCity />

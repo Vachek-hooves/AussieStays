@@ -1,19 +1,54 @@
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Modal,
+} from 'react-native';
 import {Colors} from '../../constant/colors';
 import {useAussieContext} from '../../store/aussie_context';
+import {useState} from 'react';
+import {CreateNewCityModal} from '../HomeComponents';
 
 const IconAddCity = () => {
   const {createCity} = useAussieContext();
-  function addCityCall() {
-    createCity('Melbourne');
+  const [isNewCity, setIsNewCity] = useState(false);
+  const [cityName, setCityName] = useState('New City');
+  const [isActive, setIsActive] = useState(false);
+  console.log(cityName);
+
+  function closeModal() {
+    setIsActive(false);
+  }
+
+  function createNewCity() {
+    if (!cityName.trim()) {
+      Alert.alert('Wrong input', 'City name should not be empty');
+      return;
+    }
+    createCity(cityName);
+    setIsActive(false);
   }
   return (
-    <TouchableOpacity onPress={addCityCall} style={styles.rootContainer}>
+    <TouchableOpacity
+      // onPress={createNewCity}
+      // onPress={() => setIsNewCity(true)}
+      onPress={() => setIsActive(true)}
+      style={styles.rootContainer}>
       <Image
         source={require('../../assets/icons/city.png')}
         style={styles.image}
       />
       <Text style={styles.text}>+</Text>
+      <Modal visible={isActive} animationType="slide" transparent={false}>
+        <CreateNewCityModal
+          closeModal={closeModal}
+          cityName={cityName}
+          setCityName={setCityName}
+          createCity={createNewCity}
+        />
+      </Modal>
     </TouchableOpacity>
   );
 };
