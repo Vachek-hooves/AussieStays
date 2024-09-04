@@ -61,7 +61,7 @@ export const AussieProvider = ({children}) => {
     };
     // console.log(newCity);
     try {
-      const updatedHotels = [...hotels, newCity];
+      const updatedHotels = [newCity, ...hotels];
       // setHotels(allPrevData => [...allPrevData, newCity]);
       setHotels(updatedHotels);
       await storeData(updatedHotels, 'hotels');
@@ -76,7 +76,7 @@ export const AussieProvider = ({children}) => {
         if (city.id === cityId) {
           return {
             ...city,
-            hotels: [...city.hotels, newHotel],
+            hotels: [newHotel, ...city.hotels],
           };
         }
         return city;
