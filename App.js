@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     // marginBottom: 5,
     backgroundColor: 'transparent',
+    // backgroundColor: Colors.white + 90,
   },
   tabBarItemStyle: {
     flex: 1,

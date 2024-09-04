@@ -15,7 +15,7 @@ const CityGrid = () => {
           <HotelCard data={city.hotels} cityId={city.id} />
         </View>
       ))}
-      <View style={{height: 70}}></View>
+      {/* <View style={{height: 200}}></View> */}
     </ScrollView>
   );
 };
