@@ -1,13 +1,14 @@
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
   View,
-  Button,
+  TextInput,
   Image,
+  Button,
   Alert,
+  TouchableOpacity,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
 import SafeLayout from '../components/Layout/SafeLayout';
 import ImagePicker, {ImagesPicker} from '../components/ui/ImagesPicker';
 import {Colors} from '../constant/colors';
@@ -17,6 +18,7 @@ const ProfileScreen = () => {
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState(null);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     loadUserData();
@@ -67,12 +69,13 @@ const ProfileScreen = () => {
     }
   };
 
-  const handleRegister = async () => {
+  const saveUserData = async () => {
     if (name && photo) {
       const userProfile = {name, photo};
       try {
         await AsyncStorage.setItem('userProfile', JSON.stringify(userProfile));
         Alert.alert('Success', 'User data saved successfully');
+        setIsEditing(false);
         setIsRegistered(true);
       } catch (error) {
         Alert.alert('Failed to save data', error.message);
@@ -82,9 +85,55 @@ const ProfileScreen = () => {
     }
   };
 
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
   return (
     <SafeLayout>
       <View style={styles.container}>
+        {isRegistered && !isEditing ? (
+          <>
+            {photo && (
+              <Image
+                source={{uri: photo}}
+                style={styles.imageSaved}
+                resizeMode="contain"
+              />
+            )}
+            <Text style={styles.nameSaved}>{name}</Text>
+            <Button title="Edit Profile" onPress={handleEdit} />
+          </>
+        ) : (
+          <>
+            <Text style={styles.title}>{isRegistered ? 'Edit Profile' : 'Log In'}</Text>
+
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your name"
+              value={name}
+              onChangeText={text => setName(text)}
+            />
+
+            <ImagePicker
+              handleImage={images => setPhoto(images[0])}
+              btnStyle={styles.imagePickerBtn}>
+              <Text style={styles.text}>Select Photo</Text>
+            </ImagePicker>
+
+            {photo && (
+              <Image
+                source={{uri: photo}}
+                style={styles.image}
+                resizeMode="contain"
+              />
+            )}
+
+            <Button title={isRegistered ? "SAVE CHANGES" : "SAVE"} onPress={saveUserData} />
+          </>
+        )}
+      </View>
+      {/* <View style={styles.container}>
         {isRegistered ? (
           <>
             {photo && (
@@ -128,33 +177,8 @@ const ProfileScreen = () => {
             <Button title="SAVE" onPress={handleRegister} />
           </>
         )}
-      </View>
-      {/* <View style={styles.container}>
-        <Text style={styles.title}>Log In</Text>
-
-        <TextInput
-          style={styles.input}
-          placeholder="Enter your name"
-          value={name}
-          onChangeText={text => setName(text)}
-        />
-
-        <ImagePicker
-          handleImage={images => setPhoto(images[0])}
-          btnStyle={styles.imagePickerBtn}>
-          <Text style={styles.text}>Select Photo</Text>
-        </ImagePicker>
-
-        {photo && (
-          <Image
-            source={{uri: photo}}
-            style={styles.image}
-            resizeMode="contain"
-          />
-        )}
-
-        <Button title="SAVE" onPress={handleRegister} />
       </View> */}
+      
     </SafeLayout>
   );
 };
