@@ -16,20 +16,42 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const ProfileScreen = () => {
   const [name, setName] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [isRegistered, setIsRegistered] = useState(false);
 
   useEffect(() => {
     loadUserData();
   }, []);
 
-  const saveUserData = async () => {
-    try {
-      const userData = JSON.stringify({name, photo});
-      await AsyncStorage.setItem('userProfile', userData);
-      Alert.alert('Data Saved Successfully');
-    } catch (error) {
-      Alert.alert('Failed to save data', error.message);
-    }
-  };
+  // const saveUserData = async () => {
+  //   try {
+  //     const userData = JSON.stringify({name, photo});
+  //     await AsyncStorage.setItem('userProfile', userData);
+  //     Alert.alert('Data Saved Successfully');
+  //   } catch (error) {
+  //     Alert.alert('Failed to save data', error.message);
+  //   }
+  // };
+
+  // const loadUserData = async () => {
+  //   try {
+  //     const userData = await AsyncStorage.getItem('userProfile');
+  //     if (userData !== null) {
+  //       const {name, photo} = JSON.parse(userData);
+  //       setName(name);
+  //       setPhoto(photo);
+  //     }
+  //   } catch (error) {
+  //     Alert.alert('Failed to load data', error.message);
+  //   }
+  // };
+
+  // const handleRegister = () => {
+  //   if (!name || !photo) {
+  //     Alert.alert('Please enter your name and select a photo.');
+  //     return;
+  //   }
+  //   saveUserData();
+  // };
 
   const loadUserData = async () => {
     try {
@@ -38,23 +60,76 @@ const ProfileScreen = () => {
         const {name, photo} = JSON.parse(userData);
         setName(name);
         setPhoto(photo);
+        setIsRegistered(true);
       }
     } catch (error) {
       Alert.alert('Failed to load data', error.message);
     }
   };
 
-  const handleRegister = () => {
-    if (!name || !photo) {
-      Alert.alert('Please enter your name and select a photo.');
-      return;
+  const handleRegister = async () => {
+    if (name && photo) {
+      const userProfile = {name, photo};
+      try {
+        await AsyncStorage.setItem('userProfile', JSON.stringify(userProfile));
+        Alert.alert('Success', 'User data saved successfully');
+        setIsRegistered(true);
+      } catch (error) {
+        Alert.alert('Failed to save data', error.message);
+      }
+    } else {
+      Alert.alert('Please enter your name and select a photo');
     }
-    saveUserData();
   };
 
   return (
     <SafeLayout>
       <View style={styles.container}>
+        {isRegistered ? (
+          <>
+            {photo && (
+              <Image
+                source={{uri: photo}}
+                style={styles.imageSaved}
+                resizeMode="contain"
+              />
+            )}
+            {name ? (
+              <Text style={styles.nameSaved}>{name}</Text>
+            ) : (
+              <Text style={styles.name}>No Name Available</Text>
+            )}
+          </>
+        ) : (
+          <>
+            <Text style={styles.title}>Log In</Text>
+
+            <TextInput
+              style={styles.input}
+              placeholder="Enter your name"
+              value={name}
+              onChangeText={text => setName(text)}
+            />
+
+            <ImagePicker
+              handleImage={images => setPhoto(images[0])}
+              btnStyle={styles.imagePickerBtn}>
+              <Text style={styles.text}>Select Photo</Text>
+            </ImagePicker>
+
+            {photo && (
+              <Image
+                source={{uri: photo}}
+                style={styles.image}
+                resizeMode="contain"
+              />
+            )}
+
+            <Button title="SAVE" onPress={handleRegister} />
+          </>
+        )}
+      </View>
+      {/* <View style={styles.container}>
         <Text style={styles.title}>Log In</Text>
 
         <TextInput
@@ -79,7 +154,7 @@ const ProfileScreen = () => {
         )}
 
         <Button title="SAVE" onPress={handleRegister} />
-      </View>
+      </View> */}
     </SafeLayout>
   );
 };
@@ -118,6 +193,19 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginBottom: 20,
     alignSelf: 'center',
+  },
+  imageSaved: {
+    width: 260,
+    height: 200,
+    borderRadius: 50,
+    marginBottom: 20,
+    alignSelf: 'center',
+  },
+  nameSaved: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: Colors.amethyst,
   },
   text: {color: Colors.matteYellow, fontWeight: '700', fontSize: 18},
 });

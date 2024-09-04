@@ -3,6 +3,7 @@ import {useAussieContext} from '../store/aussie_context';
 import SafeLayout from '../components/Layout/SafeLayout';
 import FavHotelsList from '../components/FavHotels/FavHotelsList';
 import {useNavigation} from '@react-navigation/native';
+import {Colors} from '../constant/colors';
 
 const FavoriteHotels = () => {
   const navigation = useNavigation();
@@ -25,7 +26,9 @@ const FavoriteHotels = () => {
   return (
     <SafeLayout style={{alignItems: 'center'}}>
       {favHotels.length === 0 ? (
-        <Text style={{textAlign: 'center'}}>NO FAVORITE HOTELS</Text>
+        <Text style={styles.noHotels}>
+          NO FAVORITE HOTELS <Text style={{color: Colors.red}}>!</Text>
+        </Text>
       ) : (
         <FlatList
           data={favHotels}
@@ -43,4 +46,6 @@ const FavoriteHotels = () => {
 
 export default FavoriteHotels;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  noHotels: {textAlign: 'center', fontWeight: '700', fontSize: 28},
+});
