@@ -12,8 +12,6 @@ import {CustomCalendar} from '../components/ui';
 
 const HotelDetailsScreen = ({route}) => {
   const hotelData = route.params.hotel;
-  // console.log(hotelData);
-  // console.log(route.params);
   const name = hotelData.name;
   const isFavorite = hotelData.isFavorite;
   const address = hotelData.address;

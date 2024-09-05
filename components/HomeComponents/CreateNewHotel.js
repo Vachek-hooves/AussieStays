@@ -29,8 +29,8 @@ const CreateNewHotel = ({closeModal, onSubmit}) => {
       address: hotelAddress,
       price: {min: hotelMinPrice, max: hotelMaxPrice},
       description: hotelDescription,
-      images: images, // Додайте URL-адреси зображень або залиште порожнім, якщо не потрібно
-      coordinates: {latitude: latitude, longitude: longitude}, // Можливо, ви захочете додати координати
+      images: images, 
+      coordinates: {latitude: latitude, longitude: longitude}, 
     };
     onSubmit(newHotel);
   };
@@ -106,9 +106,7 @@ const CreateNewHotel = ({closeModal, onSubmit}) => {
         </View>
       </ScrollView>
       <View></View>
-      {/* <TouchableOpacity onPress={closeModal}>
-        <Text>CLOSE MODAL</Text>
-      </TouchableOpacity> */}
+      
     </SafeLayout>
   );
 };

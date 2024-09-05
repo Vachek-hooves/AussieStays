@@ -1,18 +1,10 @@
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Modal,
-} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Colors} from '../../constant/colors';
 import {useAussieContext} from '../../store/aussie_context';
 
 const IconDeleteHotel = ({cityId, hotelId}) => {
   const {deleteHotel} = useAussieContext();
   function cityHotelCall() {
-    console.log(cityId, hotelId);
     deleteHotel(cityId, hotelId);
   }
   return (

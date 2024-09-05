@@ -61,17 +61,16 @@ export const AussieProvider = ({children}) => {
       city: name,
       hotels: [],
     };
-    // console.log(newCity);
+
     try {
       const updatedHotels = [newCity, ...hotels];
-      // setHotels(allPrevData => [...allPrevData, newCity]);
       setHotels(updatedHotels);
       await storeData(updatedHotels, 'hotels');
     } catch (error) {}
   };
 
   const createHotel = async (cityId, newHotel) => {
-    console.log('CONTEXT- ', cityId, newHotel);
+
 
     try {
       const updatedData = hotels.map(city => {

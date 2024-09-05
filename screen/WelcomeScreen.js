@@ -7,7 +7,7 @@ import {
   Animated,
   Dimensions,
 } from 'react-native';
-import {useRef, useEffect, useState} from 'react';
+import {useRef, useEffect,} from 'react';
 import {Colors} from '../constant/colors';
 
 const {height} = Dimensions.get('screen');
@@ -36,17 +36,7 @@ const WelcomeScreen = ({navigation}) => {
             imageStyle={styles.heroImg}
           />
         </View>
-        {/* <View style={styles.header}>
-          <Text style={styles.title}>
-            Welcome{' '}
-            <View style={{zIndex: 1}}>
-              <Text style={{color: Colors.blueSea, fontSize: 20}}>to</Text>
-            </View>
-            <View style={styles.appName}>
-              <Text style={styles.appNameText}>Aussie Stays</Text>
-            </View>
-          </Text>
-        </View> */}
+        
         <View
           style={{
             position: 'absolute',
@@ -59,7 +49,7 @@ const WelcomeScreen = ({navigation}) => {
               lineHeight: 40,
               fontWeight: '700',
               color: Colors.green,
-              // textAlign: 'center',
+           
               marginLeft: 30,
             }}>
             Welcome
@@ -71,7 +61,7 @@ const WelcomeScreen = ({navigation}) => {
               fontWeight: '700',
               color: Colors.blueSea,
               textAlign: 'center',
-              // marginLeft: 30,
+          
             }}>
             to
           </Text>
@@ -94,7 +84,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     height: '100%',
   },
-  // content: {padding: 24},
   header: {paddingHorizontal: 10, position: 'absolute'},
   title: {
     fontSize: 36,
@@ -102,8 +91,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: Colors.green,
     textAlign: 'center',
-    // marginBottom: 12,
-    // marginTop: 20,
     width: '80%',
     top: NAME_HEIGHT,
     right: 0,
@@ -124,11 +111,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   heroImg: {
-    // padding: 12,
     height: '100%',
     width: '100%',
-    // borderRadius: 12,
-    // overflow: 'hidden',
   },
   appName: {
     backgroundColor: Colors.green,

@@ -16,7 +16,7 @@ const ITEM_WIDTH = width * 0.7;
 const ITEM_HEIGHT = height * 0.15;
 
 const HotelCard = ({data, cityId}) => {
-  // console.log(cityId);
+
   const navigation = useNavigation();
 
   function hotelCard({item}) {

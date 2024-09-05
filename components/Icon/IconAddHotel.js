@@ -9,13 +9,7 @@ const IconAddHotel = ({data, cityId}) => {
   const {createHotel} = useAussieContext();
   const [isNewHotel, setIsNewHotel] = useState(false);
 
-  // function addHotelCall() {
-  //   console.log('create new hotel');
-  // }
-  // function createNewHotel() {}
-
   const handleCreateHotel = newHotel => {
-    // console.log(newHotel);
     setIsNewHotel(false);
     createHotel(cityId, newHotel);
   };

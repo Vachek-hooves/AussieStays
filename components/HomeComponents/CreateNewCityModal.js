@@ -2,14 +2,11 @@ import {
   StyleSheet,
   Text,
   View,
-  Modal,
   TouchableOpacity,
   TextInput,
 } from 'react-native';
 import SafeLayout from '../Layout/SafeLayout';
-import IconReturn from '../Icon/IconReturn';
 import {Colors} from '../../constant/colors';
-
 
 const CreateNewCityModal = ({
   closeModal,
