@@ -47,5 +47,10 @@ const FavoriteHotels = () => {
 export default FavoriteHotels;
 
 const styles = StyleSheet.create({
-  noHotels: {textAlign: 'center', fontWeight: '700', fontSize: 28},
+  noHotels: {
+    textAlign: 'center',
+    fontWeight: '700',
+    fontSize: 28,
+    color: Colors.red,
+  },
 });
