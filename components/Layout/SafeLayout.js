@@ -11,7 +11,7 @@ const SafeLayout = ({children, style}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/img/citybg.jpg')}
+        source={require('../../assets/img/Background.png')}
         imageStyle={{flex: 1}}
         style={{padding: 10}}>
         <SafeAreaView
