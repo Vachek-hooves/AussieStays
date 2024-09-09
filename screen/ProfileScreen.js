@@ -23,7 +23,6 @@ const ProfileScreen = () => {
     loadUserData();
   }, []);
 
-
   const loadUserData = async () => {
     try {
       const userData = await AsyncStorage.getItem('userProfile');
@@ -84,6 +83,7 @@ const ProfileScreen = () => {
               placeholder="Enter your name"
               value={name}
               onChangeText={text => setName(text)}
+              placeholderTextColor={Colors.matteYellow + 90}
             />
 
             <ImagePicker
@@ -107,7 +107,6 @@ const ProfileScreen = () => {
           </>
         )}
       </View>
-      
     </SafeLayout>
   );
 };
@@ -133,6 +132,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 5,
     fontSize: 20,
+    color: Colors.matteYellow,
+    fontWeight: '600',
   },
   imagePickerBtn: {
     backgroundColor: Colors.amethyst + 90,

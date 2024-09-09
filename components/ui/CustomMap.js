@@ -80,10 +80,11 @@ const styles = StyleSheet.create({
     bottom: 10,
     right: 10,
     flexDirection: 'column',
+    gap: 30,
   },
   button: {
     marginHorizontal: 10,
-    backgroundColor: Colors.blueSea,
+    backgroundColor: Colors.amethyst,
     borderRadius: 25,
     padding: 10,
     marginBottom: 10,
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: 'bold',
     color: Colors.matteYellow,
   },

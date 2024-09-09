@@ -84,5 +84,7 @@ const styles = StyleSheet.create({
     minWidth: 200,
     maxWidth: '90%',
     borderRadius: 90,
+    borderColor: Colors.matteYellow,
+    color: Colors.matteYellow + 90,
   },
 });

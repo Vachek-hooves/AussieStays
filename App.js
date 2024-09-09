@@ -1,8 +1,8 @@
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Animated} from 'react-native';
 import {AussieProvider} from './store/aussie_context';
 import {
   FavoriteHotels,
@@ -16,23 +16,29 @@ import {Colors} from './constant/colors';
 import TabIconCities from './components/Icon/TabIconCities';
 import TabIconFavorite from './components/Icon/TabIconFavorite';
 import TabIconProfile from './components/Icon/TabIconProfile';
+import {useEffect, useRef, useState} from 'react';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const images = [
+  require('./assets/img/Loader1.png'),
+  require('./assets/img/Loader2.png'),
+];
 
 const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: Colors.blueSea,
-        tabBarInactiveTintColor: Colors.matteYellow + 80,
+        tabBarActiveTintColor: Colors.matteYellow,
+        tabBarInactiveTintColor: Colors.matteYellow + 20,
         headerShown: false,
         title: '',
         tabBarStyle: styles.tabBarStyle,
         tabBarItemStyle: styles.tabBarItemStyle,
       }}>
       <Tab.Screen
-        name="HomeScreen"
+        name="MainScreen"
         component={HomeScreen}
         options={{
           // title: 'home',
@@ -54,6 +60,38 @@ const TabNavigator = () => {
 };
 
 function App() {
+  const [id, setItem] = useState(0);
+  const animation = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    fadeStart();
+    const timeOut = setTimeout(() => {
+      navigateToMenu();
+    }, 6000);
+    return () => clearTimeout(timeOut);
+  }, []);
+  const fadeStart = () => {
+    Animated.timing(animation, {
+      toValue: 1,
+      duration: 1500,
+      useNativeDriver: true,
+    }).start(() => fadeFinish());
+  };
+
+  const fadeFinish = () => {
+    Animated.timing(animation, {
+      toValue: 0,
+      duration: 1500,
+      useNativeDriver: true,
+    }).start(() => {
+      setItem(prevState => prevState + 1);
+      fadeStart();
+    });
+  };
+  const navigateToMenu = () => {
+    setItem(2);
+  };
+
   return (
     <AussieProvider>
       <NavigationContainer>
@@ -63,23 +101,29 @@ function App() {
             animation: 'fade_from_bottom',
             animationDuration: 1000,
           }}>
-          <Stack.Screen
-            name="WelcomeScree"
-            component={WelcomeScreen}
-            // options={{
-            //   animation: 'fade',
-            //   animationDuration: 500,
-            //   headerShown: false,
-            // }}
-          />
-          <Stack.Screen name="TabNavigation" component={TabNavigator} />
+          {id < 2 ? (
+            <Stack.Screen name="Welcome" options={{headerShown: false}}>
+              {() => (
+                <View style={{flex: 1}}>
+                  <Animated.Image
+                    source={images[id]}
+                    style={[
+                      {width: '100%', flex: 1},
+                      {opacity: animation},
+                    ]}></Animated.Image>
+                </View>
+              )}
+            </Stack.Screen>
+          ) : (
+            <Stack.Screen name="HomeScreen" component={TabNavigator} />
+          )}
+          {/* <Stack.Screen name="WelcomeScree" component={WelcomeScreen} /> */}
+          {/* <Stack.Screen name="TabNavigation" component={TabNavigator} /> */}
           <Stack.Screen name="MapScreen" component={MapScreen} />
           <Stack.Screen
             name="HotelDetailsScreen"
             component={HotelDetailsScreen}
           />
-          {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
-          {/* <Stack.Screen name="FavoriteHotels" component={FavoriteHotels} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </AussieProvider>
@@ -106,7 +150,7 @@ const styles = StyleSheet.create({
   },
   tabBarItemStyle: {
     flex: 1,
-    backgroundColor: Colors.green,
+    backgroundColor: Colors.amethyst,
     borderRadius: 22,
     margin: 5,
   },
