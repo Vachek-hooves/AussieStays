@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import SafeLayout from '../components/Layout/SafeLayout';
 import IconReturn from '../components/Icon/IconReturn';
 import {
@@ -7,7 +7,6 @@ import {
   HotelImages,
   HotelName,
 } from '../components/HotelDetails';
-import IconMap from '../components/Icon/IconMap';
 import {CustomCalendar} from '../components/ui';
 
 const HotelDetailsScreen = ({route}) => {
@@ -33,6 +32,7 @@ const HotelDetailsScreen = ({route}) => {
           name={name}
         />
         <HotelDiscription text={description} />
+
         <CustomCalendar />
       </ScrollView>
       <View style={{height: 70}}></View>
@@ -42,5 +42,3 @@ const HotelDetailsScreen = ({route}) => {
 };
 
 export default HotelDetailsScreen;
-
-const styles = StyleSheet.create({});
